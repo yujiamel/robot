@@ -29,12 +29,13 @@ Below codes have been tested in python 3.9 environment:
    log_file_path = [log file path]                 
    log_level = [log level] (e.g.DEBUG, INFO, ERROR, WARNING)        
    
-2. main.py is to read commands input file and trigger Robot class object:  
+2. main.py is to read the command input file and trigger Robot class object:  
    a. update ConfigFile.properties for command file path, log file path and log level              
-   b. run it under project root dirctory using python main.py             
-2. Robot.py is a robot object class under robot module which handles robot behaviours   
+   b. run it under the project root dirctory                 
+         python main.py             
+2. Robot.py is a robot object class under robot module, which handles robot behaviours   
 3. tests folder includes end-to-end test cases of main.py and unit-tests of Robot.py            
-   unit testing:    python -m pytest tests\test_robot.py       
-   end-end testing: python -m pytest tests\test_main.py              
-4. testdata under tests folder contains input command test files
+         unit testing:    python -m pytest tests\test_robot.py       
+         end-end testing: python -m pytest tests\test_main.py              
+4. testdata under tests folder contains input command testing files
    
