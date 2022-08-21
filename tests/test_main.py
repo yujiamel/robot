@@ -1,6 +1,7 @@
 # This test file is for end-to-end testing
 # Input: file path of test files containing all input commands
 # Expected result: its final position
+import logging
 import pytest
 from main import Process
 
@@ -11,4 +12,4 @@ from main import Process
                           ('tests/testdata/test3.txt', '3,3,NORTH')
                           ])
 def test_main(cmd_file, expected):
-    assert Process.start(cmd_file) == expected
+    assert Process.start(cmd_file, 'test_main.log', logging.DEBUG) == expected

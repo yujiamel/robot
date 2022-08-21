@@ -1,4 +1,5 @@
 # This is main script for Toy Robot.
+import configparser
 import logging
 from robot.robot import Robot
 
@@ -7,9 +8,9 @@ import re
 
 class Process:
     @classmethod
-    def start(cls, cmd_file):
+    def start(cls, cmd_file, log_path, log_level):
         # set log message format
-        logging.basicConfig(filename='robot/robotexec.log',
+        logging.basicConfig(filename=log_path,
                             format='%(asctime)s - %(name)s -  %(funcName)s() - %(levelname)s - %(message)s',
                             level=logging.DEBUG)
         # logger for this main script
@@ -62,7 +63,18 @@ class Process:
 
 
 if __name__ == '__main__':
-    Process.start('tests/testdata/test1.txt')
+    config = configparser.ConfigParser()
+
+    config.read('ConfigFile.properties')
+    cmd_file = config.get("command_file", "command_file_path")
+    log_file = config.get("log_file", "log_file_path")
+    log_level = config.get("log_file", "log_level")
+    log_levels = {'DEBUG': logging.DEBUG,
+                  'INFO': logging.INFO,
+                  'WARNING': logging.WARNING,
+                  'ERROR': logging.ERROR,
+                  }
+    Process.start(cmd_file, log_file, log_levels.get(log_level, logging.ERROR))
 
 
 
