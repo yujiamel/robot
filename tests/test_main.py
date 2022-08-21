@@ -1,3 +1,6 @@
+# This test file is for end-to-end testing
+# Input: file path of test files containing all input commands
+# Expected result: its final position
 import pytest
 from main import Process
 

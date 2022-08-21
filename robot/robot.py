@@ -4,6 +4,7 @@ import logging
 class Robot:
 
     def __init__(self, min_x, max_x, min_y, max_y):
+        # TODO: use a config file for settings
         # set the range of a table for robot to roam
         self.min_x = min_x
         self.max_x = max_x
@@ -49,7 +50,7 @@ class Robot:
             return False
 
     # not valid move, if not on the table
-    # not valid move, if it will fall
+    # not valid move, if falling
     def is_valid_move(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if (self.is_on_table()) and (

@@ -1,8 +1,7 @@
 # This is main script for Toy Robot.
 import logging
-import logging.config
 from robot.robot import Robot
-from fuzzywuzzy import fuzz
+
 import re
 
 
@@ -35,6 +34,8 @@ class Process:
             # execute commands
             logger.debug('Executing commands......')
 
+            # TODO: add command parsing function in Robot class
+            # TODO: using fuzzy logic to allow typo error in command line
             for command in commands:
                 if command[0] == 'PLACE':
                     # valid PLACE command: "[x position],[y position],[facing]", but allow spaces
@@ -53,7 +54,6 @@ class Process:
                 else:
                     # unknown command do nothing
                     logger.debug('Unknown Command:{}'.format(command))
-
         except FileNotFoundError:
             logger.error('Command file not found')
 
