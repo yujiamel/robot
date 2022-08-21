@@ -6,11 +6,11 @@ from falling to destruction. Any movement that would result in the robot falling
 however further valid movement commands must still be allowed. 
 
 Commands:
-1. PLACE X,Y,F
-2. MOVE
-3. LEFT
-4. RIGHT
-5. REPORT
+* PLACE X,Y,F
+* MOVE
+* LEFT
+* RIGHT
+* REPORT
 
 PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST. The origin (0,0) can be considered to be the SOUTH WEST most corner.  
 
@@ -26,7 +26,15 @@ Any move that would cause the robot to fall must be ignored.
 
 Commands are input from a file. 
 
-
-
+Below codes have been tested in python 3.9 environment: 
+1. main.py to run the application:  
+   a. update the input commands file path in main.py
+   b. update log level if required
+   c. run it under project root dirctory using 
+      python main.py 
+2. robot module contains Robot class 
+3. tests folder includes end-to-end testing and unit-test of Robot class
+      unit testing:    python -m pytest tests\test_robot.py 
+      end-end testing: python -m pytest tests\test_main.py
 
 
