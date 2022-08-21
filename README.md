@@ -1,9 +1,7 @@
-Toy Robot Code Challenge
+Toy Robot Code Challenge 
+(This code challenge is provided by iress)
 
-The application is a simulation of a toy robot moving on a square table top, of dimensions 5 units x 5 units. There are no 
-other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented 
-from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, 
-however further valid movement commands must still be allowed. 
+The application is a simulation of a toy robot moving on a square table top, of dimensions 5 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed. 
 
 Commands:
 * PLACE X,Y,F
@@ -27,14 +25,17 @@ Any move that would cause the robot to fall must be ignored.
 Commands are input from a file. 
 
 Below codes have been tested in python 3.9 environment: 
-1. main.py to run the application:  
-   a. update the input commands file path in main.py
+1. main.py is to read commands input file and trigger Robot class object:  
+   a. update the input commands file path
+   
    b. update log level if required
-   c. run it under project root dirctory using 
+   
+   c. run it under project root dirctory using   
       python main.py 
-2. robot module contains Robot class 
-3. tests folder includes end-to-end testing and unit-test of Robot class
-      unit testing:    python -m pytest tests\test_robot.py 
-      end-end testing: python -m pytest tests\test_main.py
+2. Robot class is under robot module 
+3. tests folder includes end-to-end testing and unit-test of Robot class 
 
+   unit testing:    python -m pytest tests\test_robot.py       
+   end-end testing: python -m pytest tests\test_main.py
 
+   
