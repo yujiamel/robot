@@ -32,10 +32,11 @@ Below codes have been tested in python 3.9 environment:
    
    c. run it under project root dirctory using   
       python main.py 
-2. Robot class is under robot module 
-3. tests folder includes end-to-end testing and unit-test of Robot class 
+2. Robot.py is under robot module 
+3. tests folder includes end-to-end test cases of main.py and unit-tests of Robot.py 
 
    unit testing:    python -m pytest tests\test_robot.py       
    end-end testing: python -m pytest tests\test_main.py
-
+   
+4. testdata under tests folder contains input command sample files for testing purpose
    
