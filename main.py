@@ -17,15 +17,14 @@ class Process:
         logger = logging.getLogger('main')
 
         logger.info('Start')
-        # Reading command files
-
+        # reading command file
         robot_obj = Robot(0, 5, 0, 5)
         try:
             logger.debug('Reading command file {}......'.format(cmd_file))
             input_file = open(cmd_file, 'r')
             contents = input_file.read()
 
-            # Process input file
+            # process input file
             logger.debug('Processing commands......')
             commands = []
             for line in contents.splitlines():
@@ -38,7 +37,7 @@ class Process:
 
             for command in commands:
                 if command[0] == 'PLACE':
-                    # valid PLACE command to follow pattern "[x position],[y position],[facing]", but allow spaces
+                    # valid PLACE command: "[x position],[y position],[facing]", but allow spaces
                     if re.match(r"\s*[0-9]\s*,\s*[0-9]\s*,\s*[A-Z]", command[1]):
                         # remove all spaces
                         place_para = command[1].replace(' ', '').split(',')
