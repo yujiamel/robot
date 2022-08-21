@@ -1,5 +1,5 @@
 import pytest
-from robot.main import Process
+from main import Process
 
 
 @pytest.mark.parametrize("cmd_file,expected",

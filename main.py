@@ -10,7 +10,7 @@ class Process:
     @classmethod
     def start(cls, cmd_file):
         # set log message format
-        logging.basicConfig(filename='robotexec.log',
+        logging.basicConfig(filename='robot/robotexec.log',
                             format='%(asctime)s - %(name)s -  %(funcName)s() - %(levelname)s - %(message)s',
                             level=logging.DEBUG)
         # logger for this main script
@@ -63,7 +63,7 @@ class Process:
 
 
 if __name__ == '__main__':
-    Process.start('../tests/testdata/test1.txt')
+    Process.start('tests/testdata/test1.txt')
 
 
 

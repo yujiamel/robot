@@ -49,7 +49,7 @@ class Robot:
             return False
 
     # not valid move, if not on the table
-    # not valid move, if it will fall off the table
+    # not valid move, if it will fall
     def is_valid_move(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if (self.is_on_table()) and (
@@ -120,16 +120,17 @@ class Robot:
         self.log.debug("End Position: {},{},{}".format(self.x, self.y, self.f))
         return self.f
 
+    # return current position of robot
     def get_position(self):
-        if self.is_on_table():
-            status = "{},{},{}".format(self.x, self.y, self.f)
+        if self.f not in self.f_list:
+            position = "Robot is not on the table"
         else:
-            status = "Robot is not on the table"
-        return status
+            position = "{},{},{}".format(self.x, self.y, self.f)
+        return position
 
     # report position
     def report(self):
-        status = self.get_position()
-        print(status)
-        return status
+        position = self.get_position()
+        print(position)
+        return position
 
