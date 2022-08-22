@@ -2,6 +2,15 @@ import logging
 
 
 class Robot:
+    N = 'NORTH'
+    S = 'SOUTH'
+    W = 'WEST'
+    E = 'EAST'
+    CMD_PLACE = 'PLACE'
+    CMD_MOVE = 'MOVE'
+    CMD_RIGHT = 'RIGHT'
+    CMD_LEFT = 'LEFT'
+    CMD_REPORT = 'REPORT'
 
     def __init__(self, min_x, max_x, min_y, max_y):
         # TODO: use a config file for settings
@@ -11,7 +20,7 @@ class Robot:
         self.min_y = min_y
         self.max_y = max_y
         # set a list of turns allowed
-        self.f_list = {'NORTH', 'SOUTH', 'EAST', 'WEST'}
+        self.f_list = {Robot.N, Robot.S, Robot.W, Robot.E}
         # set default values before a valid placement on the table
         self.x = -1
         self.y = -1
@@ -54,10 +63,10 @@ class Robot:
     def is_valid_move(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if (self.is_on_table()) and (
-                (self.f == 'NORTH' and self.y < self.max_y) or
-                (self.f == 'EAST' and self.x < self.max_x) or
-                (self.f == 'SOUTH' and self.y > self.min_y) or
-                (self.f == 'WEST' and self.x > self.min_x)
+                (self.f == Robot.N and self.y < self.max_y) or
+                (self.f == Robot.E and self.x < self.max_x) or
+                (self.f == Robot.S and self.y > self.min_y) or
+                (self.f == Robot.W and self.x > self.min_x)
         ):
             self.log.debug("Valid Move Command: {},{},{}".format(self.x, self.y, self.f))
             return True
@@ -80,11 +89,11 @@ class Robot:
     def move(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if self.is_valid_move():
-            if self.f == 'NORTH':
+            if self.f == Robot.N:
                 self.y = self.y+1
-            elif self.f == 'EAST':
+            elif self.f == Robot.E:
                 self.x = self.x+1
-            elif self.f == 'SOUTH':
+            elif self.f == Robot.S:
                 self.y = self.y-1
             else:
                 self.x = self.x-1
@@ -95,12 +104,12 @@ class Robot:
     def left(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if self.is_on_table():
-            if self.f == 'NORTH':
-                self.f = 'WEST'
-            elif self.f == 'WEST':
-                self.f = 'SOUTH'
-            elif self.f == 'SOUTH':
-                self.f = 'EAST'
+            if self.f == Robot.N:
+                self.f = Robot.W
+            elif self.f == Robot.W:
+                self.f = Robot.S
+            elif self.f == Robot.S:
+                self.f = Robot.E
             else:
                 self.f = 'NORTH'
         self.log.debug("End Position: {},{},{}".format(self.x, self.y, self.f))
@@ -110,14 +119,14 @@ class Robot:
     def right(self):
         self.log.debug("Start Position: {},{},{}".format(self.x, self.y, self.f))
         if self.is_on_table():
-            if self.f == 'NORTH':
-                self.f = 'EAST'
-            elif self.f == 'EAST':
-                self.f = 'SOUTH'
-            elif self.f == 'SOUTH':
-                self.f = 'WEST'
+            if self.f == Robot.N:
+                self.f = Robot.E
+            elif self.f == Robot.E:
+                self.f = Robot.S
+            elif self.f == Robot.S:
+                self.f = Robot.W
             else:
-                self.f = 'NORTH'
+                self.f = Robot.N
         self.log.debug("End Position: {},{},{}".format(self.x, self.y, self.f))
         return self.f
 
