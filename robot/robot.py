@@ -111,7 +111,7 @@ class Robot:
             elif self.f == Robot.S:
                 self.f = Robot.E
             else:
-                self.f = 'NORTH'
+                self.f = Robot.N
         self.log.debug("End Position: {},{},{}".format(self.x, self.y, self.f))
         return self.f
 

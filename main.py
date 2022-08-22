@@ -37,7 +37,7 @@ class Process:
             # TODO: add command parsing function in Robot class
             # TODO: using fuzzy logic to allow typo error in command line
             for command in commands:
-                if command[0] == 'PLACE':
+                if command[0] == Robot.CMD_PLACE:
                     # valid PLACE command: "[x position],[y position],[facing]", but allow spaces
                     if re.match(r"\s*[0-9]\s*,\s*[0-9]\s*,\s*[A-Z]", command[1]):
                         # remove all spaces
