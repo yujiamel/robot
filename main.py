@@ -11,7 +11,7 @@ class Process:
         # set log message format
         logging.basicConfig(filename=log_path,
                             format='%(asctime)s - %(name)s -  %(funcName)s() - %(levelname)s - %(message)s',
-                            level=logging.DEBUG)
+                            level=log_level)
         # logger for this main script
         logger = logging.getLogger('main')
 
@@ -81,8 +81,3 @@ if __name__ == '__main__':
         Process.start(cmd_file, log_file, log_levels.get(log_level, logging.ERROR))
     except Exception as ex:
         print('Error occurred:{}'.format(str(ex)))
-
-
-
-
-
